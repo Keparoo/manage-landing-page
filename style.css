@@ -267,7 +267,6 @@ body {
     content: '';
     position: fixed;
     inset: 0;
-    /* height: 100vh; */
     background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.8));
   }
 
