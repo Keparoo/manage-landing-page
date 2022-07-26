@@ -167,11 +167,6 @@ select {
   }
 }
 
-/*
-Named classes are set up to adjust with media queries
-Numbered classes are set up to never change
-*/
-
 /* general stylings */
 
 body {
@@ -297,6 +292,11 @@ body {
     display: none;
   }
 }
+
+/*
+Named classes are set up to adjust with media queries
+Numbered classes are set up to never change
+*/
 
 /* Utility classes */
 
