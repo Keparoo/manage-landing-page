@@ -282,6 +282,33 @@ p[data-width='wide'] {
   }
 }
 
+/* cta */
+
+/* isolation creates a new stacking context for z-index */
+.cta {
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+}
+
+@media (min-width: 50em) {
+  .cta {
+    text-align: left;
+  }
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: url('images/bg-tablet-pattern.svg'),
+    url('images/bg-tablet-pattern.svg');
+  background-position: -15rem -5rem, 80rem -42rem;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+}
+
 /*
 Named classes are set up to adjust with media queries
 Numbered classes are set up to never change
@@ -309,17 +336,6 @@ Numbered classes are set up to never change
   margin-inline: auto;
 }
 
-/*
-  * + * selects all siblings except the first 
-  an alternative selector is :not(:first-child)
-  this boosts specificity so *+* may be better choice
-  wrapping in a :where(.flow :not(:first-child)) gives spec of 0
-  If --flow-spacer is not defined, use 1em ( --flow-spacer would be an override)
-  */
-.flow * + * {
-  margin-top: var(--flow-spacer, 3em);
-}
-
 .even-columns {
   display: grid;
   gap: 1rem;
@@ -331,6 +347,28 @@ Numbered classes are set up to never change
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
+}
+
+.vertical-align-center {
+  align-items: center;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
+@media (min-width: 50em) {
+  .justify-self-end-md {
+    justify-self: end;
+  }
+}
+
+/*
+  An alternative to the :where.... is .flow * + * {}
+  The :where.... has a specificity of 0 which is helpful
+  */
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
 }
 
 .text-primary-400 {
