@@ -146,33 +146,22 @@ select {
   }
 }
 
-.container {
-  --max-width: 1110px;
-  --padding: 1rem;
-
-  width: min(var(--max-width), 100% - var(--padding) * 2);
-  margin-inline: auto;
-}
-
-.even-columns {
-  display: grid;
-  gap: 1rem;
-}
-
-/* ems are the only unit that will be consistent across all browsers & OS when you are zooming in and out. Also in media queries em and rem are not looking at set root size, they are looking at the browser's default size */
-@media (min-width: 50em) {
-  .even-columns {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-  }
-}
-
 /* general stylings */
 
 body {
   font-size: var(--fs-body);
   font-family: var(--ff-body);
   color: var(--clr-primary-400);
+}
+
+/* Only apply if a class is not applied */
+p:not([class]) {
+  opacity: 0.7;
+  max-width: 32ch;
+}
+
+p[data-width='wide'] {
+  max-width: 42ch;
 }
 
 /* button */
@@ -310,6 +299,38 @@ Numbered classes are set up to never change
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - var(--padding) * 2);
+  margin-inline: auto;
+}
+
+/*
+  * + * selects all siblings except the first 
+  an alternative selector is :not(:first-child)
+  this boosts specificity so *+* may be better choice
+  wrapping in a :where(.flow :not(:first-child)) gives spec of 0
+  If --flow-spacer is not defined, use 1em ( --flow-spacer would be an override)
+  */
+.flow * + * {
+  margin-top: var(--flow-spacer, 3em);
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+/* ems are the only unit that will be consistent across all browsers & OS when you are zooming in and out. Also in media queries em and rem are not looking at set root size, they are looking at the browser's default size */
+@media (min-width: 50em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
 }
 
 .text-primary-400 {
