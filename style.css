@@ -524,6 +524,7 @@ Numbered classes are set up to never change
 .fw-regular {
   font-weight: var(--fw-regular);
 }
+
 .fs-primary-heading {
   font-size: var(--fs-primary-heading);
   line-height: 1.1;
@@ -532,7 +533,6 @@ Numbered classes are set up to never change
   font-size: var(--fs-secondary-heading);
   line-height: 1.1;
 }
-
 .fs-300 {
   font-size: var(--fs-300);
 }
