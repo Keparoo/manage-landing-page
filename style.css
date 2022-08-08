@@ -423,7 +423,7 @@ input:where([type='text'], [type='email'], [type='password']) {
 
 /*
 Named classes are set up to adjust with media queries
-Numbered classes are set up to never change
+Numbered classes are set up to never change.
 */
 
 /* Utility classes */
