@@ -453,7 +453,10 @@ Numbered classes are set up to never change.
   gap: 1rem;
 }
 
-/* ems are the only unit that will be consistent across all browsers & OS when you are zooming in and out. Also in media queries em and rem are not looking at set root size, they are looking at the browser's default size */
+/*
+ems are the only unit that will be consistent across all browsers & OS when you are zooming in and out.
+Also in media queries em and rem are not looking at set root size, they are looking at the browser's default size
+*/
 @media (min-width: 50em) {
   .even-columns {
     grid-auto-flow: column;
